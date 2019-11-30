@@ -7,7 +7,7 @@ public class CheckForCover : MonoBehaviour
     private MovementManager movementManager; 
     private PlayerHealthManager healthManager; 
     private PlayerCharacter playerCharacter; 
-    private Animator Anim;
+    public Animator Anim;
     public float invincibilityTime = 1f;
     public bool invincible;
 

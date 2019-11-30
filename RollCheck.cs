@@ -10,7 +10,7 @@ public class RollCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
+        player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
     }
 
     // Update is called once per frame

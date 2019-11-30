@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveTowardCamera : MonoBehaviour
 {
     private MovementManager movementManager;
-    private float movementSpeed; 
+    public float movementSpeed; 
 
     private Vector3 directionToMove;
 
@@ -22,4 +22,10 @@ public class MoveTowardCamera : MonoBehaviour
             transform.position += directionToMove * Time.deltaTime;    
         }
     }
+
+    public void SetMovementSpeed(float newMovementSpeed) {
+        movementSpeed = newMovementSpeed;
+        directionToMove = new Vector3(0, 0, -movementSpeed);
+    }
+
 }

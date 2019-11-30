@@ -8,6 +8,7 @@ public class PlayerCharacter : MonoBehaviour
     private GameObject camera;
     private MovementManager movementManager; 
     private PlayerHealthManager healthManager;
+    private ScoreManager scoreManager;
 
     [Range(0, 2)] 
     private int lane = 1;
@@ -26,6 +27,7 @@ public class PlayerCharacter : MonoBehaviour
     void Start()
     {
         movementManager = GameObject.Find("Movement Manager").GetComponent<MovementManager>();
+        scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
         healthManager = this.gameObject.GetComponent<PlayerHealthManager>();
         camera = GameObject.Find("Main Camera"); 
         Anim = transform.GetChild(1).GetComponent<Animator>();
@@ -106,13 +108,12 @@ public class PlayerCharacter : MonoBehaviour
     public void BeginAiming() {
         aiming = true; 
         movementManager.PauseMovement();
-
-       StartCoroutine("Aiming");
+        scoreManager.ResetMultiplier();
+        StartCoroutine("Aiming");
     }
 
     IEnumerator Aiming() {
         yield return new WaitForSeconds(AimTime); 
-        GameObject.Destroy(pretendEnemy);
         movementManager.PlayMovement();
         aiming = false;
 

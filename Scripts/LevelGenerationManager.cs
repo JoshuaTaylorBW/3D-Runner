@@ -8,12 +8,14 @@ public class LevelGenerationManager : MonoBehaviour
     private int score = 0;
     public List<GameObject> blocks; 
     private BlockGenerationManager blockGenerationManager;
-    public Vector3 positionToSpawn; 
+    private Vector3 positionToSpawn; 
+
+    public int blocksBuilt; 
 
     void Start() {
         blockGenerationManager = GetComponent<BlockGenerationManager>();
         blocks = new List<GameObject>();
-        blocks.Add(GameObject.Find("4_Blocks"));
+        blocks.Add(GameObject.Find("Starting Block"));
         buildStartingBlocks();
     }
 
@@ -27,6 +29,9 @@ public class LevelGenerationManager : MonoBehaviour
             blocks.Add(blockToBuild);
             if(i < 3) positionToSpawn = new Vector3(0, 0, positionToSpawn.z + 1680);
         }
+
+        blocksBuilt = 4;
+
     }
 
     void FixedUpdate() {
@@ -45,6 +50,7 @@ public class LevelGenerationManager : MonoBehaviour
 
         blockToBuild = Instantiate(Resources.Load("Blocks/" + levelToSpawnPath), positionToSpawn, Quaternion.identity) as GameObject;
         blocks.Add(blockToBuild);
+        blocksBuilt++;
     }
 
     void destroyOldBlock(GameObject objectToDestroy) {
@@ -52,9 +58,17 @@ public class LevelGenerationManager : MonoBehaviour
         Destroy(objectToDestroy);
     }
 
+    public List<GameObject> GetBlocks() {
+        return blocks;
+    }
+
     public int GetScore() {
         return score;
     }
+
+    public int GetAmountOfBlocksBuilt() {
+        return blocksBuilt;
+    } 
 
 }
 

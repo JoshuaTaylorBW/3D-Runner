@@ -17,15 +17,18 @@ public class EnemyGenerationManager : MonoBehaviour
 
     IEnumerator GenerateNewEnemy() {
         float timeUntilNextGeneration = Random.Range(minTimeBetweenGenerations, maxTimeBetweenGenerations); 
-        bool moveRight = Random.Range(0,1) == 0 ? true : false;
+        int rightInt = Random.Range(0,2);
+        bool moveRight = rightInt == 0 ? true : false;
+        Debug.Log(rightInt);
         Vector3 positionToSpawn = new Vector3(moveRight ? -300f : 300f, -36.9f, 1108f);
+
         yield return new WaitForSeconds(timeUntilNextGeneration);
+
         EnemyToBirth = Instantiate(Resources.Load("Enemies/Enemy"), positionToSpawn, Quaternion.identity) as GameObject; 
         EnemyToBirth.GetComponent<Enemy>().SetMoveRight(moveRight);
         StartCoroutine("GenerateNewEnemy");
     }
 
-    // Update is called once per frame
     void Update()
     {
         

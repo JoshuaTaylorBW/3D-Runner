@@ -6,18 +6,19 @@ public class CheckForHitOnEnemy : MonoBehaviour
 {
 
     public PlayerCharacter player;
+    public ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
-       player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
+        scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
+        player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
     }
 
     void OnMouseOver()
     {
         if(Input.GetMouseButtonDown(0) && player.IsAiming())
         {
-            Debug.Log("Clicked");
             KillEnemy();
         }
     }
@@ -25,6 +26,7 @@ public class CheckForHitOnEnemy : MonoBehaviour
     public void KillEnemy()
     {
         GameObject.Destroy(this.transform.root.gameObject);
+        scoreManager.AddToMultiplier();
     }
 
     // Update is called once per frame
