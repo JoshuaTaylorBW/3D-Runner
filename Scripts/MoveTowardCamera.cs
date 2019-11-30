@@ -18,6 +18,8 @@ public class MoveTowardCamera : MonoBehaviour
 
     void Update()
     {
-        transform.position += directionToMove * Time.deltaTime;    
+        if(movementManager.IsMoving()) {
+            transform.position += directionToMove * Time.deltaTime;    
+        }
     }
 }
