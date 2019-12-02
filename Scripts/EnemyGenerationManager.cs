@@ -19,13 +19,13 @@ public class EnemyGenerationManager : MonoBehaviour
         float timeUntilNextGeneration = Random.Range(minTimeBetweenGenerations, maxTimeBetweenGenerations); 
         int rightInt = Random.Range(0,2);
         bool moveRight = rightInt == 0 ? true : false;
-        Debug.Log(rightInt);
         Vector3 positionToSpawn = new Vector3(moveRight ? -300f : 300f, -36.9f, 1108f);
 
         yield return new WaitForSeconds(timeUntilNextGeneration);
 
         EnemyToBirth = Instantiate(Resources.Load("Enemies/Enemy"), positionToSpawn, Quaternion.identity) as GameObject; 
         EnemyToBirth.GetComponent<Enemy>().SetMoveRight(moveRight);
+        EnemyToBirth.GetComponent<SpriteRenderer>().flipX = (!moveRight);
         StartCoroutine("GenerateNewEnemy");
     }
 
