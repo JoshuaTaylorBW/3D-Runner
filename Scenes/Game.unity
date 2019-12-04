@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 256949973}
   m_Layer: 0
   m_Name: Check For Cover
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -909,10 +909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853c17bbfdfb7aa47b62eae1c3d4fa19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedUpText: {fileID: 1792573997}
   currentStage: 1
   currentSpeed: 1
   hasNotChanged: 1
-  blocksBeforeSecondSpeed: 5
+  blocksBeforeSecondSpeed: 22
 --- !u!4 &585315423
 Transform:
   m_ObjectHideFlags: 0
@@ -2203,7 +2204,7 @@ GameObject:
   - component: {fileID: 1132914396}
   m_Layer: 0
   m_Name: Player Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3323,7 +3324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1792573998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3374,9 +3375,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: Speed Up!
 --- !u!222 &1792574000
 CanvasRenderer:
   m_ObjectHideFlags: 0
