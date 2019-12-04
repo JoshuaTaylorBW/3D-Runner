@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementManager : MonoBehaviour
 {
 
+    public bool isTutorial = false;
     public bool moving = true;
 
     public float currentMovementSpeed;
@@ -18,8 +19,10 @@ public class MovementManager : MonoBehaviour
     public int blockSpeedLevel = 1;
 
     void Start() {
-        lum = GameObject.Find("Level Up Manager").GetComponent<LevelUpManager>();
-        lgm = GameObject.Find("Level Generation Manager").GetComponent<LevelGenerationManager>();
+        if(!isTutorial) {
+            lum = GameObject.Find("Level Up Manager").GetComponent<LevelUpManager>();
+            lgm = GameObject.Find("Level Generation Manager").GetComponent<LevelGenerationManager>();    
+        }
         currentMovementSpeed = firstMovementSpeed; 
     }
 
@@ -40,12 +43,15 @@ public class MovementManager : MonoBehaviour
     }
 
     void Update() {
-        if(lum.GetCurrentSpeed() == 2) {
-            currentMovementSpeed = secondMovementSpeed;
-            if(blockSpeedLevel != 2) {
-                SpeedUpBlocks();
-            }
+        if(!isTutorial) {
+            if(lum.GetCurrentSpeed() == 2) {
+                currentMovementSpeed = secondMovementSpeed;
+                if(blockSpeedLevel != 2) {
+                    SpeedUpBlocks();
+                }
+            }    
         }
+            
     }
 
     void SpeedUpBlocks() {

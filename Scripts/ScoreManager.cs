@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     public Text perfectText;
 
     private PlayerCharacter player;
-    public PlayerHealthManager healthManager;
+    private PlayerHealthManager healthManager;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
             score += currentMultiplier;
         }
 
-        if(player.IsCovering()) {
+        if(player.IsCovering() && !healthManager.IsDead()) {
             score--;
         }
 

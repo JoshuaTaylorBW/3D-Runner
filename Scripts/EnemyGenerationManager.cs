@@ -8,11 +8,14 @@ public class EnemyGenerationManager : MonoBehaviour
     public float minTimeBetweenGenerations;
     public float maxTimeBetweenGenerations;
     private GameObject EnemyToBirth;
+    public bool spawnOnLoad;
 
     // Start is called before the first frame update
     void Start()
     {
-       StartCoroutine("GenerateNewEnemy"); 
+       if(spawnOnLoad) {
+           StartCoroutine("GenerateNewEnemy"); 
+       } 
     }
 
     IEnumerator GenerateNewEnemy() {
@@ -27,6 +30,13 @@ public class EnemyGenerationManager : MonoBehaviour
         EnemyToBirth.GetComponent<Enemy>().SetMoveRight(moveRight);
         EnemyToBirth.GetComponent<SpriteRenderer>().flipX = (!moveRight);
         StartCoroutine("GenerateNewEnemy");
+    }
+
+    public void GenerateSingleEnemy() {
+        bool moveRight = true;
+        Vector3 positionToSpawn = new Vector3(-300f, -36.9f, 1108f);
+        EnemyToBirth = Instantiate(Resources.Load("Enemies/Enemy"), positionToSpawn, Quaternion.identity) as GameObject; 
+        EnemyToBirth.GetComponent<Enemy>().SetMoveRight(true);
     }
 
     void Update()

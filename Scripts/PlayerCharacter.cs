@@ -14,7 +14,6 @@ public class PlayerCharacter : MonoBehaviour
     private int lane = 1;
     public float inputDelay = 0.5f;
     public float AimTime = 0.5f;
-    public GameObject pretendEnemy;
     private bool canInput = true;
     private bool inputBlockedForRolling = false;
     private Animator Anim;
@@ -151,6 +150,10 @@ public class PlayerCharacter : MonoBehaviour
 
     public bool IsRolling() {
         return rolling; 
+    }
+
+    public int GetLane() {
+        return lane; 
     }
 
     public bool IsCovering() {

@@ -14,6 +14,14 @@ public class GameManager : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
     }
 
+    public void LoadTutorial() {
+        Application.LoadLevel("Tutorial");
+    }
+
+    public void LoadGameScene() {
+        Application.LoadLevel("Game");
+    }
+
     // Update is called once per frame
     void Update()
     {

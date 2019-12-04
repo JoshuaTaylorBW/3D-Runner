@@ -9,7 +9,6 @@ public class LevelGenerationManager : MonoBehaviour
     public List<GameObject> blocks; 
     private BlockGenerationManager blockGenerationManager;
     private Vector3 positionToSpawn; 
-
     public int blocksBuilt; 
 
     void Start() {
@@ -52,6 +51,15 @@ public class LevelGenerationManager : MonoBehaviour
         blocks.Add(blockToBuild);
         blocksBuilt++;
     }
+
+    public void SpawnSpeedUpBlock() {
+        GameObject blockToBuild;
+        positionToSpawn = new Vector3(0, 0, blocks[blocks.Count - 1].transform.position.z + 1680);
+
+        blockToBuild = Instantiate(Resources.Load("Blocks/Speed_Up"), positionToSpawn, Quaternion.identity) as GameObject;
+        blocks.Add(blockToBuild);
+        blocksBuilt++; 
+    } 
 
     void destroyOldBlock(GameObject objectToDestroy) {
         blocks.Remove(objectToDestroy);

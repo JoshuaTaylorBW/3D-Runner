@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class LevelUpManager : MonoBehaviour
 {
+    public GameObject speedUpText;
+    
     public int currentStage;
     public int currentSpeed = 1;
+    public bool hasNotChanged = true;
     public int blocksBeforeSecondSpeed;
     private LevelGenerationManager lgm;
 
     void Start()
     {
         lgm = GameObject.Find("Level Generation Manager").GetComponent<LevelGenerationManager>();
-    }
-
-    void Update()
-    {
-        if(lgm.GetAmountOfBlocksBuilt() > blocksBeforeSecondSpeed) {
-            currentSpeed = 2;
-        } 
     }
 
     public int GetCurrentStage() {
@@ -29,4 +25,15 @@ public class LevelUpManager : MonoBehaviour
         return currentSpeed;
     }
 
+    void Update() {
+        if(lgm.GetAmountOfBlocksBuilt() > blocksBeforeSecondSpeed && hasNotChanged) {
+            lgm.SpawnSpeedUpBlock();
+            hasNotChanged = false;
+        }
+    }
+
+    public void LevelUp() {
+        currentSpeed++;
+        speedUpText.SetActive(true); 
+    }
 }

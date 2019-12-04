@@ -15,6 +15,7 @@ public class PlayerHealthManager : MonoBehaviour
     public GameObject halfHealthHeart;
     public GameObject restartButton;
     public GameObject gameOverText;
+    public GameObject tutorialButton;
 
     public void getHit() {
         if(!godMode) {
@@ -27,6 +28,7 @@ public class PlayerHealthManager : MonoBehaviour
             {
                 halfHealthHeart.GetComponent<Image>().sprite = emptyHeart;
                 gameOverText.SetActive(true);
+                tutorialButton.SetActive(true);
                 restartButton.SetActive(true);
                 health--;
             } 

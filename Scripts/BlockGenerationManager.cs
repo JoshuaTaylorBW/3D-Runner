@@ -60,8 +60,13 @@ public class BlockGenerationManager : MonoBehaviour
 
 
     //common, uncommon, rare (50, 35, 15) but done out of 200 so (10, 7, 3)
-    public static List<string> commonLevelOneBlockPaths = new List<string>{"Level_1/4_Blocks", "Level_1/2_Rails", "Level_1/3_Rails_3_Trash_Cans", "Level_1/3_Trash_Cans"};
-    public static List<string> uncommonLevelOneBlockPaths = new List<string>{"Level_1/4_Blocks", "Level_1/2_Rails", "Level_1/3_Rails_3_Trash_Cans", "Level_1/3_Trash_Cans"};
-    public static List<string> rareLevelOneBlockPaths =  new List<string>{"Level_1/4_Blocks", "Level_1/2_Rails", "Level_1/3_Rails_3_Trash_Cans", "Level_1/3_Trash_Cans"};
+    public static List<string> commonLevelOneBlockPaths = new List<string>{"Level_1/4_Blocks", "Level_1/2_Rails", "Level_1/3_Rails_3_Trash_Cans", "Level_1/3_Trash_Cans", "Level_1/1_Cover_2_Trash_Cans_Middle_Right", "Level_1/1_Rail"};
+    public static List<string> uncommonLevelOneBlockPaths = new List<string>{"Level_1/4_Blocks", "Level_1/2_Rails", "Level_1/3_Rails_3_Trash_Cans", "Level_1/3_Trash_Cans", "Level_1/1_Cover_2_Trash_Cans_Middle_Right", "Level_1/1_Rail"};
+    public static List<string> rareLevelOneBlockPaths =  new List<string>{"Level_1/4_Blocks", "Level_1/2_Rails", "Level_1/3_Rails_3_Trash_Cans", "Level_1/3_Trash_Cans", "Level_1/1_Cover_2_Trash_Cans_Middle_Right", "Level_1/1_Rail"};
+
+    //TO SPAWN A SINGLE BLOCK ALWAYS
+    // public static List<string> commonLevelOneBlockPaths = new List<string>{"Level_1/1_Rail"};
+    // public static List<string> uncommonLevelOneBlockPaths = new List<string>{"Level_1/1_Rail"};
+    // public static List<string> rareLevelOneBlockPaths =  new List<string>{"Level_1/1_Rail"};
 
 }
