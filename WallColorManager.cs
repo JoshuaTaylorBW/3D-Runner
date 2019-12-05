@@ -8,17 +8,20 @@ public class WallColorManager : MonoBehaviour
     [Header("Stage Two")]
     public Material stageTwoTopAndBottomMaterial;
     public Material stageTwoMiddleMaterial;
+    
     [Header("Stage Three")]
     public Material stageThreeTopAndBottomMaterial;
     public Material stageThreeMiddleMaterial;
+
     [Header("Stage Four")]
     public Material stageFourTopAndBottomMaterial;
     public Material stageFourMiddleMaterial;
+
     [Header("Stage Five")]
     public Material stageFiveTopAndBottomMaterial;
     public Material stageFiveMiddleMaterial;
 
-    private LevelUpManager lum;
+    public LevelUpManager lum;
 
     // Start is called before the first frame update
     void Start()

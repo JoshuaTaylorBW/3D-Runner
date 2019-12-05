@@ -5,26 +5,23 @@ using UnityEngine;
 public class ChangeWallColorForLevel : MonoBehaviour
 {
 
-    public WallColorManager wcm; 
-    public MeshRenderer meshRenderer; 
+    private WallColorManager wcm; 
+    private MeshRenderer meshRenderer; 
 
-    public Material newMaterialOne;
-    public Material newMaterialTwo;
+    private Material newMaterialOne;
+    private Material newMaterialTwo;
 
-    public Material[] mats;
+    private Material[] mats;
 
     void Start()
     {
         wcm = GameObject.Find("Wall Color Manager").GetComponent<WallColorManager>();
         meshRenderer = GetComponent<MeshRenderer>();
 
-        newMaterialOne = wcm.GetCurrentTopAndBottomWallMaterial();
-        newMaterialTwo = wcm.GetCurrentMiddleWallMaterial();
-
-
-
         if(wcm.ShouldChangeWallMaterials()) {
-            Debug.Log(newMaterialOne);
+            newMaterialOne = wcm.GetCurrentTopAndBottomWallMaterial();
+            newMaterialTwo = wcm.GetCurrentMiddleWallMaterial();
+
             mats = meshRenderer.materials;
             mats[0] = newMaterialTwo; 
             mats[1] = newMaterialOne; 

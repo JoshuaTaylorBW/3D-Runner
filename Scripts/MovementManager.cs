@@ -7,16 +7,32 @@ public class MovementManager : MonoBehaviour
 
     public bool isTutorial = false;
     public bool moving = true;
+    public int blockSpeedLevel = 1;
 
     public float currentMovementSpeed;
 
+    [Header("Stage One")]
     public float firstMovementSpeed;
+
+    [Header("Stage Two")]
     public int blocksBeforeSecondSpeed;
     public float secondMovementSpeed;
+
+    [Header("Stage Three")]
+    public int blocksBeforeThirdSpeed;
+    public float thirdMovementSpeed;
+
+    [Header("Stage Four")]
+    public int blocksBeforeFourthSpeed;
+    public float fourthMovementSpeed;
+
     private LevelUpManager lum;
     private LevelGenerationManager lgm;
 
-    public int blockSpeedLevel = 1;
+    private bool hasNotMovedToTwo = true;
+    private bool hasNotMovedToThree = true;
+    private bool hasNotMovedToFour = true;
+
 
     void Start() {
         if(!isTutorial) {
@@ -44,12 +60,43 @@ public class MovementManager : MonoBehaviour
 
     void Update() {
         if(!isTutorial) {
-            if(lum.GetCurrentSpeed() == 2) {
+            
+            if(lum.GetCurrentSpeedLevel() == 1) {
+                if(lgm.GetAmountOfBlocksBuilt() > blocksBeforeSecondSpeed && hasNotMovedToTwo) {
+                    lgm.SpawnSpeedUpBlock();
+                    hasNotMovedToTwo = false;
+                }    
+            } 
+
+            if(lum.GetCurrentSpeedLevel() == 2) {
                 currentMovementSpeed = secondMovementSpeed;
                 if(blockSpeedLevel != 2) {
                     SpeedUpBlocks();
                 }
-            }    
+
+                if(lgm.GetAmountOfBlocksBuilt() > blocksBeforeThirdSpeed && hasNotMovedToThree) {
+                    lgm.SpawnSpeedUpBlock();
+                    hasNotMovedToThree = false;
+                }
+            }
+
+            if(lum.GetCurrentSpeedLevel() == 3) {
+                currentMovementSpeed = thirdMovementSpeed;
+                if(blockSpeedLevel != 3) {
+                    SpeedUpBlocks();
+                } 
+
+                if(lgm.GetAmountOfBlocksBuilt() > blocksBeforeFourthSpeed && hasNotMovedToFour) {
+                    lgm.SpawnSpeedUpBlock();
+                    hasNotMovedToFour = false; 
+                }
+            }
+            if(lum.GetCurrentSpeedLevel() == 4) {
+                currentMovementSpeed = fourthMovementSpeed;
+                if(blockSpeedLevel != 4) {
+                    SpeedUpBlocks();
+                }
+            }
         }
             
     }
