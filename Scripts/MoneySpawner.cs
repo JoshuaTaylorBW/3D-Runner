@@ -8,7 +8,7 @@ public class MoneySpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnMoney();    
+        if(moneyLayouts.Count > 0) SpawnMoney();    
     }
 
     void SpawnMoney() {

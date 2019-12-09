@@ -424,11 +424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640759261221949
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,11 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640759320565398
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,11 +899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640759407599135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1002,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748640759447778463}
+  - component: {fileID: 2383550937278308260}
+  - component: {fileID: 3716071565446172352}
   - component: {fileID: 8748640759447778460}
   m_Layer: 0
   m_Name: Speed_Up
@@ -1045,6 +1032,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2383550937278308260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748640759447778461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec7d9ee569b8764b90ee71847969304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalLengths: 1
+--- !u!114 &3716071565446172352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8748640759447778461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d68b0316ec42a749a55e4cc3c4c1b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyLayouts: []
 --- !u!114 &8748640759447778460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,11 +1364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640759603496092
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,11 +1659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640759721014845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,11 +1859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640759922861509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,11 +2620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640760137485406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,11 +3152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640760598528397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,11 +3259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640760611246515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,11 +4018,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640760844348634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,11 +4313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640760872765824
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,11 +4514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640760953244290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4909,11 +4877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640761040633140
 GameObject:
   m_ObjectHideFlags: 0
@@ -5114,11 +5077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636021f738909f240890958b3431c334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wcm: {fileID: 0}
-  meshRenderer: {fileID: 0}
-  newMaterialOne: {fileID: 0}
-  newMaterialTwo: {fileID: 0}
-  mats: []
 --- !u!1 &8748640761080543799
 GameObject:
   m_ObjectHideFlags: 0
