@@ -26,6 +26,10 @@ public class MovementManager : MonoBehaviour
     public int blocksBeforeFourthSpeed;
     public float fourthMovementSpeed;
 
+    [Header("Stage Five")]
+    public int blocksBeforeFifthSpeed;
+    public float fifthMovementSpeed;
+
     private LevelUpManager lum;
     private LevelGenerationManager lgm;
 
@@ -94,6 +98,12 @@ public class MovementManager : MonoBehaviour
             if(lum.GetCurrentSpeedLevel() == 4) {
                 currentMovementSpeed = fourthMovementSpeed;
                 if(blockSpeedLevel != 4) {
+                    SpeedUpBlocks();
+                }
+            }
+            if(lum.GetCurrentSpeedLevel() == 5) {
+                currentMovementSpeed = fifthMovementSpeed;
+                if(blockSpeedLevel != 5) {
                     SpeedUpBlocks();
                 }
             }

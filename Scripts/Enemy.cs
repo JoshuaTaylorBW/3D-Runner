@@ -57,21 +57,18 @@ public class Enemy : MonoBehaviour
     }
 
     IEnumerator WaitUntilSecondPeriod() {
-        Debug.Log("WaitUntilSecondPeriod");
         yield return new WaitForSeconds(timeBeforeSecondPeriod);
         EnemyHudAnimator.SetTrigger("Second Period");
         StartCoroutine("WaitUntilYellowPeriod");
     }
 
     IEnumerator WaitUntilYellowPeriod() {
-        Debug.Log("WaitUntilYellowPeriod");
         yield return new WaitForSeconds(timeBeforeSecondPeriod);
         EnemyHudAnimator.SetTrigger("Third Period");
         StartCoroutine("WaitUntilAlert");
     }
 
     IEnumerator WaitUntilAlert() {
-        Debug.Log("WaitUntilAlert");
         yield return new WaitForSeconds(timeBeforeSecondPeriod);
         EnemyHudAnimator.SetTrigger("Third Period"); 
         StartCoroutine("IsAlert");

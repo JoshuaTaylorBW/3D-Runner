@@ -20,8 +20,6 @@ public class BlockGenerationManager : MonoBehaviour
             rareLevelOneBlockPaths        
         };
 
-        Debug.Log("Block Generation Manager Loaded");
-
     }
 
     void Update()
@@ -30,7 +28,6 @@ public class BlockGenerationManager : MonoBehaviour
 
     public string GetBlockToSpawnPath() {
        SetNewBlockToSpawnIndex();
-       Debug.Log(RarityAdjustedBlockArray()[blockIndex]);
        return RarityAdjustedBlockArray()[blockIndex]; 
 
     }

@@ -8,9 +8,6 @@ public class DeactivateOnTrigger : MonoBehaviour
 
     public GameObject speedUpText;
 
-    void Start() {
-    }
-
     void OnTriggerEnter(Collider col) {
         if(col.gameObject.tag == "Player") {
             speedUpText = GameObject.Find("Speed Up"); 
