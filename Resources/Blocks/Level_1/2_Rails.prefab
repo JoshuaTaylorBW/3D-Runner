@@ -684,7 +684,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68b0316ec42a749a55e4cc3c4c1b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyLayouts: []
+  moneyLayouts:
+  - 2_Rails/Come_To_A_Point
+  - 2_Rails/DNA_Strand
+  - 2_Rails/Y
+  - General/Middle_Line
+  - General/Left_Line
+  - General/Right_Line
+  - General/Right_To_Left
+  - General/Left_To_Right
 --- !u!114 &3788358867889332121
 MonoBehaviour:
   m_ObjectHideFlags: 0

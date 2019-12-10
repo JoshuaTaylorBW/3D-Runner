@@ -933,7 +933,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68b0316ec42a749a55e4cc3c4c1b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyLayouts: []
+  moneyLayouts:
+  - General/Backwards_C
+  - General/Late_Right_Zag
+  - General/Late_Left_Zag
+  - General/Forward_C
+  - 'General/Left_Line '
+  - General/Right_Line
+  - General/Middle_Line
+  - General/Left_To_Right
+  - General/Right_To_Left
 --- !u!114 &1811700411007469173
 MonoBehaviour:
   m_ObjectHideFlags: 0

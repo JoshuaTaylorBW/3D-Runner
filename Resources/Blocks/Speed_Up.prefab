@@ -1057,7 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68b0316ec42a749a55e4cc3c4c1b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyLayouts: []
+  moneyLayouts:
+  - Speed_Up_Block/All_Lines_Full
 --- !u!114 &8748640759447778460
 MonoBehaviour:
   m_ObjectHideFlags: 0

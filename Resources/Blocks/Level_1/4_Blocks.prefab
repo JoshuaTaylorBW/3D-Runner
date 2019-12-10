@@ -2524,7 +2524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68b0316ec42a749a55e4cc3c4c1b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyLayouts: []
+  moneyLayouts:
+  - General/Middle_Line
+  - 4_Blocks/Avoid_Cover
 --- !u!114 &4214267380750778145
 MonoBehaviour:
   m_ObjectHideFlags: 0
