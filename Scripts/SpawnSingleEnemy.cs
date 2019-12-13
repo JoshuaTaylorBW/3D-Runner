@@ -15,8 +15,7 @@ public class SpawnSingleEnemy : MonoBehaviour
 
     void OnCollisionEnter(Collision col) {
         if(col.gameObject.name == "Check For Cover") {
-            egm = GameObject.Find("Enemy Generation Manager").GetComponent<EnemyGenerationManager>();
-            egm.GenerateSingleEnemy(); 
+            egm.GenerateSingleTutorialEnemy(); 
             tutorialTextToShow.SetActive(true);
         }
     }

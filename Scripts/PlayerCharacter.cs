@@ -8,6 +8,7 @@ public class PlayerCharacter : MonoBehaviour
     private GameObject camera;
     private MovementManager movementManager; 
     private PlayerHealthManager healthManager;
+    private GameManager gameManager;
     private ScoreManager scoreManager;
 
     [Range(0, 2)] 
@@ -21,12 +22,14 @@ public class PlayerCharacter : MonoBehaviour
     public bool rolling = false;
     public bool aiming = false;
     public bool covering = false;
+    public bool dead = false;
 
 
     void Start()
     {
         movementManager = GameObject.Find("Movement Manager").GetComponent<MovementManager>();
         scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         healthManager = this.gameObject.GetComponent<PlayerHealthManager>();
         camera = GameObject.Find("Main Camera"); 
         Anim = transform.GetChild(1).GetComponent<Animator>();
@@ -79,8 +82,6 @@ public class PlayerCharacter : MonoBehaviour
 
     public void MoveRight() {
        if(lane < 2) {
-            Debug.Log("Should Move");
-
             transform.position = new Vector3(
                 transform.position.x + 85.5f,
                 transform.position.y,
@@ -103,6 +104,11 @@ public class PlayerCharacter : MonoBehaviour
             Anim.SetTrigger("Roll");
         }
     } 
+
+    public void Die() {
+        gameManager.UpdateValues();
+        dead = true;
+    }
 
     public void BeginAiming() {
         aiming = true; 

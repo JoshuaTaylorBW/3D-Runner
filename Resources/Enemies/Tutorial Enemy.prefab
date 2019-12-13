@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 7560954044784939763}
   - component: {fileID: 7560954044784939762}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Tutorial Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,9 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 90
   maxMovementTime: 4
-  timeBeforeSecondPeriod: 5
-  timeBeforeYellowPeriod: 5
-  timeBeforeAlert: 5
+  timeBeforeSecondPeriod: 10
+  timeBeforeYellowPeriod: 10
+  timeBeforeAlert: 300
   timeEnemyIsAlert: 12
 --- !u!212 &7560954044784939763
 SpriteRenderer:

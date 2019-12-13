@@ -43,6 +43,10 @@ public class ScoreManager : MonoBehaviour
         currentMultiplier = 1;
     }
 
+    public int GetScore() {
+        return score;
+    }
+
     public void AddToMultiplier() {
         currentMultiplier++;
     }

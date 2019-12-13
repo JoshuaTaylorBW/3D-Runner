@@ -34,8 +34,17 @@ public class EnemyGenerationManager : MonoBehaviour
 
     public void GenerateSingleEnemy() {
         bool moveRight = true;
-        Vector3 positionToSpawn = new Vector3(-300f, -36.9f, 1108f);
+        Vector3 positionToSpawn = new Vector3(-300f, -36.9f, 11000f);
         EnemyToBirth = Instantiate(Resources.Load("Enemies/Enemy"), positionToSpawn, Quaternion.identity) as GameObject; 
+
+        EnemyToBirth.GetComponent<Enemy>().SetMoveRight(true);
+    }
+
+    public void GenerateSingleTutorialEnemy() {
+        bool moveRight = true;
+        Vector3 positionToSpawn = new Vector3(-300f, -36.9f, 1300f);
+        EnemyToBirth = Instantiate(Resources.Load("Enemies/Tutorial Enemy"), positionToSpawn, Quaternion.identity) as GameObject; 
+
         EnemyToBirth.GetComponent<Enemy>().SetMoveRight(true);
     }
 

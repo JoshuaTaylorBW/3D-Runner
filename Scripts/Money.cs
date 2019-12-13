@@ -15,7 +15,6 @@ public class Money : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision col) {
-        Debug.Log(col.gameObject.tag);
         if(col.gameObject.tag == "Player") {
             moneyManager.AddCoinsToTotal(1);
             GameObject.Destroy(this.gameObject);

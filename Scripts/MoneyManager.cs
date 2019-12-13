@@ -18,8 +18,9 @@ public class MoneyManager : MonoBehaviour
         coinText.text = totalCoins.ToString();
     }
 
-    void Update()
-    {
-        
+
+    public int GetTotalCoins() {
+        return totalCoins;
     }
+
 }

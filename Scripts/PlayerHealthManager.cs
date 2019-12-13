@@ -16,6 +16,7 @@ public class PlayerHealthManager : MonoBehaviour
     public GameObject restartButton;
     public GameObject gameOverText;
     public GameObject tutorialButton;
+    public PlayerCharacter player;
 
     public void getHit() {
         if(!godMode) {
@@ -30,6 +31,7 @@ public class PlayerHealthManager : MonoBehaviour
                 gameOverText.SetActive(true);
                 tutorialButton.SetActive(true);
                 restartButton.SetActive(true);
+                GetComponent<PlayerCharacter>().Die();
                 health--;
             } 
         } 

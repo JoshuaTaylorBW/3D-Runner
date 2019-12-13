@@ -7,6 +7,8 @@ public class PauseMovement : MonoBehaviour
 {
     private MovementManager movementManager; 
     public GameObject tutorialTextToShow; 
+    public bool hideText;
+    public GameObject tutoriaTextToHide;
 
     void Start()
     {
@@ -17,6 +19,9 @@ public class PauseMovement : MonoBehaviour
         if(col.gameObject.name == "Check For Cover") {
             movementManager.PauseMovement();
             tutorialTextToShow.SetActive(true);
+            if(hideText) {
+               tutoriaTextToHide.SetActive(false); 
+            }
         }
     }
 
