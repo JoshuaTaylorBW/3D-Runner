@@ -614,7 +614,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.04, y: 3.98}
+  m_Size: {x: 32, y: 23.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2107,6 +2107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3285a373aeff234488190a3565863ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHighScore: 0
+  playerTotalCoins: 0
 --- !u!4 &875875324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4147810860854550, guid: d9b3137296eb11547a955d82c9ffcc3b,
@@ -2529,6 +2531,7 @@ MonoBehaviour:
   restartButton: {fileID: 823103779}
   gameOverText: {fileID: 2016452214}
   tutorialButton: {fileID: 1286721732}
+  player: {fileID: 0}
 --- !u!114 &1132914398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2546,6 +2549,7 @@ MonoBehaviour:
   rolling: 0
   aiming: 0
   covering: 0
+  dead: 0
 --- !u!4 &1136840553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4847014625062532, guid: 1a8e35a83ad2f4d449d1255a2310462c,

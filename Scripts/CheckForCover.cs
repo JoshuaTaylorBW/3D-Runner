@@ -55,7 +55,9 @@ public class CheckForCover : MonoBehaviour
     }
 
     IEnumerator StartInvincibilityTimer() {
+        Anim.SetBool("hurt", true);
         yield return new WaitForSeconds(invincibilityTime);
+        Anim.SetBool("hurt", false);
         invincible = false;
     }
 

@@ -17,7 +17,7 @@ public class PlayerCharacter : MonoBehaviour
     public float AimTime = 0.5f;
     private bool canInput = true;
     private bool inputBlockedForRolling = false;
-    private Animator Anim;
+    private Animator anim;
 
     public bool rolling = false;
     public bool aiming = false;
@@ -32,7 +32,7 @@ public class PlayerCharacter : MonoBehaviour
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         healthManager = this.gameObject.GetComponent<PlayerHealthManager>();
         camera = GameObject.Find("Main Camera"); 
-        Anim = transform.GetChild(1).GetComponent<Animator>();
+        anim = transform.GetChild(1).GetComponent<Animator>();
     }
 
     void Update()
@@ -101,12 +101,14 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Roll() {
         if(canInput) {
-            Anim.SetTrigger("Roll");
+            anim.SetTrigger("Roll");
         }
     } 
 
     public void Die() {
         gameManager.UpdateValues();
+        movementManager.PauseMovement();
+        anim.SetBool("dead", true);
         dead = true;
     }
 
@@ -114,11 +116,13 @@ public class PlayerCharacter : MonoBehaviour
         aiming = true; 
         movementManager.PauseMovement();
         scoreManager.ResetMultiplier();
+        anim.SetBool("aiming", true);
         StartCoroutine("Aiming");
     }
 
     IEnumerator Aiming() {
         yield return new WaitForSeconds(AimTime); 
+        anim.SetBool("aiming", false);
         movementManager.PlayMovement();
         aiming = false;
 
@@ -152,6 +156,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void setCover(bool cover) {
         covering = cover;  
+        anim.SetBool("taking_cover", cover);
     } 
 
     public bool IsRolling() {
