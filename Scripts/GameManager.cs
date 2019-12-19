@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         moneyManager = GameObject.Find("Money Manager").GetComponent<MoneyManager>();
         playerHighScore = playerData.highScore;
         playerTotalCoins = playerData.coinsCollected;
+
     }
 
     public void Restart() {
@@ -42,10 +43,6 @@ public class GameManager : MonoBehaviour
     public void UpdateValues() {
         int newHighscore = scoreManager.GetScore() > GetPlayerHighScore() ? scoreManager.GetScore() : GetPlayerHighScore();
         int coins = GetPlayerTotalCoins() + moneyManager.GetTotalCoins(); 
-
-        Debug.Log("inside method");
-        Debug.Log(newHighscore);
-        Debug.Log(coins);
 
         SavePlayer(newHighscore, coins);
     }

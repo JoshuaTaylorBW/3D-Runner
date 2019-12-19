@@ -13,10 +13,21 @@ public class PlayerHealthManager : MonoBehaviour
     public Sprite emptyHeart;
     public GameObject fullHealthHeart;
     public GameObject halfHealthHeart;
-    public GameObject restartButton;
-    public GameObject gameOverText;
-    public GameObject tutorialButton;
+    public GameObject gameOverScreen;
     public PlayerCharacter player;
+
+
+    void Start() {
+        fullHealthHeart = GameObject.Find("Full health heart");
+        halfHealthHeart = GameObject.Find("Half health heart");
+        gameOverScreen = GameObject.Find("Game Over Screen"); 
+        gameOverScreen.SetActive(false); 
+
+        if(health == 1) {
+            fullHealthHeart.SetActive(false);
+            halfHealthHeart.GetComponent<RectTransform>().anchoredPosition = new Vector2(-32f, -33);
+        }
+    }
 
     public void getHit() {
         if(!godMode) {
@@ -28,9 +39,7 @@ public class PlayerHealthManager : MonoBehaviour
             else if(health == 1)
             {
                 halfHealthHeart.GetComponent<Image>().sprite = emptyHeart;
-                gameOverText.SetActive(true);
-                tutorialButton.SetActive(true);
-                restartButton.SetActive(true);
+                gameOverScreen.SetActive(true);
                 GetComponent<PlayerCharacter>().Die();
                 health--;
             } 
