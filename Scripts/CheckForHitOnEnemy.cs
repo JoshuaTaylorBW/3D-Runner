@@ -5,21 +5,26 @@ using UnityEngine;
 public class CheckForHitOnEnemy : MonoBehaviour
 {
 
-    public PlayerCharacter player;
+    public PlayerWeapon playerWeapon;
+    public PlayerCharacter playerCharacter;
     public ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
-        player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
+        playerWeapon = GameObject.Find("Player Character").GetComponent<PlayerWeapon>(); 
+        playerCharacter = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
     }
 
     void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0) && player.IsAiming())
-        {
+        if(playerWeapon.IsSwipeToKill()) {
             KillEnemy();
+        }else if(playerWeapon.IsTapToKill()) {
+            if(Input.GetMouseButtonDown(0) && playerCharacter.IsAiming()) {
+                KillEnemy();
+            }
         }
     }
 
@@ -27,11 +32,5 @@ public class CheckForHitOnEnemy : MonoBehaviour
     {
         GameObject.Destroy(this.transform.root.gameObject);
         scoreManager.AddToMultiplier();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

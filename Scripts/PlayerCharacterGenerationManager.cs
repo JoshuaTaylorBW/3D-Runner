@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerCharacterGenerationManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public int chosenCharacter = 0;
 
     void Start() {
@@ -39,8 +37,8 @@ public class PlayerCharacterGenerationManager : MonoBehaviour
     public void SpawnTheDamage() {
         GameObject characterToSpawn;
         characterToSpawn = Instantiate(Resources.Load("Characters/The_Damage/Player Character"), new Vector3(-272f, -38f, 1108f), Quaternion.identity) as GameObject; 
+        characterToSpawn.name = "Player Character";
     }
-
 
     public void SetChosenCharacter(int characterId) {
         PlayerPrefs.SetInt("Chosen_Character", characterId);

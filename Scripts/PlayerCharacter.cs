@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Touch;
 
 public class PlayerCharacter : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerCharacter : MonoBehaviour
 
     [Range(0, 2)] 
     private int lane = 1;
+    public int baseMovementSpeed = 0;
     public float inputDelay = 0.5f;
     public float AimTime = 0.5f;
     private bool canInput = true;
@@ -25,7 +27,7 @@ public class PlayerCharacter : MonoBehaviour
     public bool dead = false;
 
 
-    void Start()
+    protected virtual void Start()
     {
         movementManager = GameObject.Find("Movement Manager").GetComponent<MovementManager>();
         scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
@@ -35,7 +37,7 @@ public class PlayerCharacter : MonoBehaviour
         anim = transform.GetChild(1).GetComponent<Animator>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
 
         if(PlayerInputsLeft() && canInput) {
@@ -60,7 +62,7 @@ public class PlayerCharacter : MonoBehaviour
 
     }
 
-    public void MoveLeft() {
+    public virtual void MoveLeft() {
         if(lane > 0) {
             transform.position = new Vector3(
                 transform.position.x - 85.5f,
@@ -80,7 +82,7 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-    public void MoveRight() {
+    public virtual void MoveRight() {
        if(lane < 2) {
             transform.position = new Vector3(
                 transform.position.x + 85.5f,
@@ -99,20 +101,20 @@ public class PlayerCharacter : MonoBehaviour
         } 
     }
 
-    public void Roll() {
+    public virtual void Roll() {
         if(canInput) {
             anim.SetTrigger("Roll");
         }
     } 
 
-    public void Die() {
+    public virtual void Die() {
         gameManager.UpdateValues();
         movementManager.PauseMovement();
         anim.SetBool("dead", true);
         dead = true;
     }
 
-    public void BeginAiming() {
+    public virtual void BeginAiming() {
         aiming = true; 
         movementManager.PauseMovement();
         scoreManager.ResetMultiplier();
@@ -167,8 +169,16 @@ public class PlayerCharacter : MonoBehaviour
         return lane; 
     }
 
+    public int GetBaseMovementSpeed() {
+        return baseMovementSpeed; 
+    }
+
     public bool IsCovering() {
         return covering; 
+    }
+
+    public bool IsDead() {
+        return dead; 
     }
 
     public bool IsAiming() {

@@ -86,9 +86,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6921175306259393457}
-  - component: {fileID: 6921175306259393460}
+  - component: {fileID: 2148002460023994787}
   - component: {fileID: 6921175306259393463}
   - component: {fileID: 6921175306259393462}
+  - component: {fileID: 7820188433039917955}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Player
@@ -112,7 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6921175306259393460
+--- !u!114 &2148002460023994787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6921175306259393456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9155203df73564aa1edad8f2386f7e, type: 3}
+  m_Script: {fileID: 11500000, guid: c95c662c67d45674a938150a88efa074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  baseMovementSpeed: 0
   inputDelay: 0.1
   AimTime: 1.5
   rolling: 0
@@ -168,6 +171,20 @@ MonoBehaviour:
   heightDimension: 0
   text: {fileID: 0}
   camera: {fileID: 0}
+--- !u!114 &7820188433039917955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6921175306259393456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4183eeb16be638a4081c76bebf111325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tapToKill: 0
+  swipeToKill: 1
 --- !u!1001 &6921175306179502933
 PrefabInstance:
   m_ObjectHideFlags: 0

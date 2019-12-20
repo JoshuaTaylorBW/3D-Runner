@@ -9,6 +9,8 @@ public class MovementManager : MonoBehaviour
     public bool moving = true;
     public int blockSpeedLevel = 1;
 
+    private PlayerCharacter player; 
+
     public float currentMovementSpeed;
 
     [Header("Stage One")]
@@ -29,6 +31,8 @@ public class MovementManager : MonoBehaviour
     [Header("Stage Five")]
     public int blocksBeforeFifthSpeed;
     public float fifthMovementSpeed;
+
+    public bool hasAddedCharacterMovement = false;
 
     private LevelUpManager lum;
     private LevelGenerationManager lgm;
@@ -108,7 +112,22 @@ public class MovementManager : MonoBehaviour
                 }
             }
         }
-            
+
+        if(player == null) {
+            player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>();
+            currentMovementSpeed += player.GetBaseMovementSpeed();
+            firstMovementSpeed += player.GetBaseMovementSpeed();
+            secondMovementSpeed += player.GetBaseMovementSpeed();
+            thirdMovementSpeed += player.GetBaseMovementSpeed();
+            fourthMovementSpeed += player.GetBaseMovementSpeed();
+            fifthMovementSpeed += player.GetBaseMovementSpeed(); 
+
+            List<GameObject> blocks = lgm.GetBlocks();
+            foreach(GameObject block in blocks) {
+                MoveTowardCamera blockBehave = block.GetComponent<MoveTowardCamera>();
+                blockBehave.SetMovementSpeed(currentMovementSpeed);
+            } 
+        }
     }
 
     void SpeedUpBlocks() {
