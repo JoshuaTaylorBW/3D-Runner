@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0febda280d456f349a5a72ff4f9d187d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 0}
   baseMovementSpeed: 0
   inputDelay: 0.1
   AimTime: 1.5

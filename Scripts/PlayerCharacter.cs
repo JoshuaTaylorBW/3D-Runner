@@ -63,7 +63,7 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public virtual void MoveLeft() {
-        if(lane > 0) {
+        if(lane > 0 && !IsAiming()) {
             transform.position = new Vector3(
                 transform.position.x - 85.5f,
                 transform.position.y,
@@ -83,7 +83,7 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public virtual void MoveRight() {
-       if(lane < 2) {
+       if(lane < 2 && !IsAiming()) {
             transform.position = new Vector3(
                 transform.position.x + 85.5f,
                 transform.position.y,

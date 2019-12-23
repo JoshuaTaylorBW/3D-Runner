@@ -10,17 +10,19 @@ public class GameManager : MonoBehaviour
     private ScoreManager scoreManager;
     private MoneyManager moneyManager;
 
+    private TouchControls touchControls;
+
     void Start() {
-        // SavePlayer(100, 100);
         PlayerData playerData = LoadPlayer();
         scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
         moneyManager = GameObject.Find("Money Manager").GetComponent<MoneyManager>();
+        touchControls = GameObject.Find("Touch Controls").GetComponent<TouchControls>();
         playerHighScore = playerData.highScore;
         playerTotalCoins = playerData.coinsCollected;
-
     }
 
     public void Restart() {
+        touchControls.StopWatchingForTouch();
         Application.LoadLevel(Application.loadedLevel);
     }
 
@@ -41,10 +43,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateValues() {
-        int newHighscore = scoreManager.GetScore() > GetPlayerHighScore() ? scoreManager.GetScore() : GetPlayerHighScore();
-        int coins = GetPlayerTotalCoins() + moneyManager.GetTotalCoins(); 
-
-        SavePlayer(newHighscore, coins);
+        playerHighScore = scoreManager.GetScore() > playerHighScore ? scoreManager.GetScore() : playerHighScore;
+        playerTotalCoins += moneyManager.GetTotalCoins(); 
+        SavePlayer(playerHighScore, playerTotalCoins);
     }
 
     public int GetPlayerHighScore() {
