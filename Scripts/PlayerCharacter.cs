@@ -7,10 +7,12 @@ public class PlayerCharacter : MonoBehaviour
 {
 
     private GameObject camera;
-    private MovementManager movementManager; 
+    [HideInInspector] 
+    public MovementManager movementManager; 
     private PlayerHealthManager healthManager;
     private GameManager gameManager;
-    private ScoreManager scoreManager;
+    [HideInInspector] 
+    public ScoreManager scoreManager;
 
     [Range(0, 2)] 
     private int lane = 1;
@@ -19,7 +21,8 @@ public class PlayerCharacter : MonoBehaviour
     public float AimTime = 0.5f;
     private bool canInput = true;
     private bool inputBlockedForRolling = false;
-    private Animator anim;
+    [HideInInspector] 
+    public Animator anim;
 
     public bool rolling = false;
     public bool aiming = false;
@@ -59,6 +62,8 @@ public class PlayerCharacter : MonoBehaviour
                 inputBlockedForRolling = false;
             }
         }
+
+        CharacterUpdate();
 
     }
 
@@ -122,12 +127,16 @@ public class PlayerCharacter : MonoBehaviour
         StartCoroutine("Aiming");
     }
 
-    IEnumerator Aiming() {
+    public virtual IEnumerator Aiming() {
         yield return new WaitForSeconds(AimTime); 
         anim.SetBool("aiming", false);
         movementManager.PlayMovement();
         aiming = false;
 
+    }
+
+    public virtual void GetHit() {
+        healthManager.getHit();
     }
 
     bool PlayerInputsLeft() {
@@ -142,14 +151,13 @@ public class PlayerCharacter : MonoBehaviour
         return (Input.GetKeyDown(KeyCode.S));
     }
 
+    public virtual void Shot(bool hit) {} 
+    public virtual void CharacterUpdate() {} 
+
     IEnumerator InputDelay() {
         canInput = false;
         yield return new WaitForSeconds(inputDelay);
         canInput = true;
-    }
-
-    public void GetHit() {
-        healthManager.getHit();
     }
 
     public void setRolling(bool roll) {
@@ -184,6 +192,5 @@ public class PlayerCharacter : MonoBehaviour
     public bool IsAiming() {
         return aiming; 
     }
-
 }
 

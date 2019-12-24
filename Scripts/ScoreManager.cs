@@ -47,8 +47,19 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
-    public void AddToMultiplier() {
-        currentMultiplier++;
+    public int GetMultiplier() {
+        return currentMultiplier;
     }
 
+    public void AddToMultiplier(int amountToAddBy) {
+        currentMultiplier += amountToAddBy;
+    }
+
+    public void SetMultiplier(int newMultiplier) {
+        currentMultiplier = newMultiplier;
+    }
+
+    public void DoubleMultiplier() {
+        currentMultiplier += currentMultiplier;
+    }
 }

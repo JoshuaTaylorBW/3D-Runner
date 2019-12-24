@@ -37,6 +37,7 @@ public class TouchControls : MonoBehaviour
         var finalDelta = screenTo - screenFrom;
         var angle = Mathf.Atan2(finalDelta.x, finalDelta.y) * Mathf.Rad2Deg;
 
+        //SWIPED RIGHT 
         if(DidSwipeAtRequiredAngle(angle, 90)) {
             playerCharacter.MoveRight();
         }

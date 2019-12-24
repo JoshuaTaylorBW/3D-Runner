@@ -163,13 +163,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0febda280d456f349a5a72ff4f9d187d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementManager: {fileID: 0}
+  scoreManager: {fileID: 0}
   baseMovementSpeed: 0
   inputDelay: 0.1
   AimTime: 1.5
+  anim: {fileID: 0}
   rolling: 0
   aiming: 0
   covering: 0
   dead: 0
+  willGetPrecisionModifier: 1
+  hasAddedPrecisionModifier: 0
+  hasHitEnemy: 0
+  hasShot: 0
+  missText: {fileID: 0}
 --- !u!114 &8911825533593968144
 MonoBehaviour:
   m_ObjectHideFlags: 0
