@@ -9,20 +9,23 @@ public class CheckForHitOnEnemy : MonoBehaviour
     public PlayerWeapon playerWeapon;
     public PlayerCharacter playerCharacter;
     public ScoreManager scoreManager;
-    public bool overMarker;
-
-    public bool isDead = false;
-
-    public bool hasShot = false;
 
     public GameObject missText;
 
+    public GameObject enemy;
 
-    // Start is called before the first frame update
+    public Animator hitMarkerAnimator;
+
+    public bool overMarker;
+    public bool isDead = false;
+    public bool hasShot = false;
+
     void Start()
     {
         scoreManager = GameObject.Find("Score Manager").GetComponent<ScoreManager>();
         playerWeapon = GameObject.Find("Player Character").GetComponent<PlayerWeapon>(); 
+        enemy = transform.root.gameObject; 
+        hitMarkerAnimator = GetComponent<Animator>(); 
         playerCharacter = GameObject.Find("Player Character").GetComponent<PlayerCharacter>(); 
         missText = GameObject.Find("Miss!"); 
     }
@@ -32,8 +35,11 @@ public class CheckForHitOnEnemy : MonoBehaviour
         overMarker = true;
 
         if(playerWeapon.IsSwipeToKill()) {
+            hitMarkerAnimator.SetTrigger("Swiped");
+            enemy.GetComponent<Enemy>().Swiped();
+            playerCharacter.KilledEnemy(enemy);
+            GetComponent<BoxCollider>().enabled = false;
             playerCharacter.Shot(true);
-            KillEnemy();
         }
     }
 

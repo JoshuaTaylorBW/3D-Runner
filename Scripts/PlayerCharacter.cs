@@ -38,7 +38,8 @@ public class PlayerCharacter : MonoBehaviour
         healthManager = this.gameObject.GetComponent<PlayerHealthManager>();
         camera = GameObject.Find("Main Camera"); 
         anim = transform.GetChild(1).GetComponent<Animator>();
-    }
+        CharacterStart();
+   }
 
     protected virtual void Update()
     {
@@ -152,7 +153,9 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     public virtual void Shot(bool hit) {} 
+    public virtual void CharacterStart() {} 
     public virtual void CharacterUpdate() {} 
+    public virtual void KilledEnemy(GameObject enemy) {} 
 
     IEnumerator InputDelay() {
         canInput = false;

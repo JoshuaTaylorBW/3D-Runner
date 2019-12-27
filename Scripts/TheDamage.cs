@@ -10,6 +10,12 @@ public class TheDamage : PlayerCharacter
     public int precisionModifierWorth = 0; 
     private GameObject perfectText;
 
+    public List<GameObject> swipedEnemies;
+
+    public override void CharacterStart() {
+        swipedEnemies = new List<GameObject>();
+    }
+
     public override void Shot(bool hit) {
         if(hit) {
             precisionModifierWorth++; 
@@ -26,6 +32,7 @@ public class TheDamage : PlayerCharacter
         hasHitEnemy = false;
         precisionModifierWorth = 0;
         scoreManager.SetMultiplier(0);
+        swipedEnemies.Clear();
 
 
         anim.SetBool("aiming", true);
@@ -33,11 +40,17 @@ public class TheDamage : PlayerCharacter
     }
 
     public override IEnumerator Aiming() {
+
         yield return new WaitForSeconds(AimTime); 
 
+        for(int i = 0; i < swipedEnemies.Count; i++) {
+            Debug.Log("From for");
+            scoreManager.AddToMultiplier(1);
+            GameObject.Destroy(swipedEnemies[i]);
+        }
 
         if(scoreManager.GetMultiplier() > 1) {
-            scoreManager.SetMultiplier(precisionModifierWorth * 2);
+            scoreManager.SetMultiplier(scoreManager.GetMultiplier());
             StartCoroutine("ShowAndHidePerfectText");
             hasAddedPrecisionModifier = true;
         }
@@ -51,6 +64,11 @@ public class TheDamage : PlayerCharacter
         aiming = false;
 
     }
+
+    public override void KilledEnemy(GameObject enemy) {
+        swipedEnemies.Add(enemy);
+    }
+
 
     public override void CharacterUpdate() {
         if(perfectText == null) {

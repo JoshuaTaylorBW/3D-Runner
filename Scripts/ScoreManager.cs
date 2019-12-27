@@ -53,6 +53,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddToMultiplier(int amountToAddBy) {
         currentMultiplier += amountToAddBy;
+        Debug.Log("official: " + currentMultiplier);
     }
 
     public void SetMultiplier(int newMultiplier) {

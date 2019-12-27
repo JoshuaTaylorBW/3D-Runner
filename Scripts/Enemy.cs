@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private bool alert;
     private bool isPositioning;
     private bool isAiming;
+    private bool isSearching;
 
     [Header("Movement")]
     public float movementSpeed;
@@ -33,11 +34,14 @@ public class Enemy : MonoBehaviour
         hitMarker = transform.GetChild(1).gameObject;
         BeginPositioning();
 
+        isSearching = true;
+
         movementSpeed = moveRight ? movementSpeed : -movementSpeed;
         player = GameObject.Find("Player Character").GetComponent<PlayerCharacter>();
         EnemyHudAnimator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>(); 
 
         EnemyAnimator = GetComponent<Animator>();
+
     }
 
     void BeginPositioning() {
@@ -71,7 +75,9 @@ public class Enemy : MonoBehaviour
     IEnumerator WaitUntilAlert() {
         yield return new WaitForSeconds(timeBeforeSecondPeriod);
         EnemyHudAnimator.SetTrigger("Third Period"); 
-        StartCoroutine("IsAlert");
+        if(isSearching) {
+            StartCoroutine("IsAlert");
+        }
     }
 
     IEnumerator IsAlert() {
@@ -112,6 +118,13 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
+    public void Swiped() {
+        player.Shot(true);
+        isSearching = false;
+    }
+
+     
 
     public void SetMoveRight(bool right) {
         moveRight = right;

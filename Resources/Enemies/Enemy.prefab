@@ -336,8 +336,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89a468b90c4a41c458dfebea61c46090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  playerWeapon: {fileID: 0}
+  playerCharacter: {fileID: 0}
   scoreManager: {fileID: 0}
+  overMarker: 0
+  isDead: 0
+  hasShot: 0
+  missText: {fileID: 0}
 --- !u!65 &7560954044971743163
 BoxCollider:
   m_ObjectHideFlags: 0
